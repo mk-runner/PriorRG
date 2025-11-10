@@ -1,9 +1,32 @@
 <div align="center">
 
-# PriorRG
+# PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation
 
-**PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation**
+[![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red.svg)](https://aaai.org/Conferences/AAAI-26/)&nbsp;&nbsp;&nbsp;
+[![arXiv](https://img.shields.io/badge/arXiv-2508.05353-b31b1b.svg)](https://arxiv.org/abs/2508.05353)&nbsp;&nbsp;&nbsp;
+[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/MK-runner/PriorRG)&nbsp;&nbsp;&nbsp;
+[![BibTeX](https://img.shields.io/badge/%F0%9F%93%96-BibTeX-yellow)](#-citation)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2508.05353-b31b1b.svg)](https://arxiv.org/abs/2508.05353)&nbsp;&nbsp;&nbsp;[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/MK-runner)
+<div align="center">
+  <img src="generated_reports/figure2.png" alt="Framework" width="75%">
+</div>
 
 </div>
+
+---
+
+## 📢 News
+
+- **2025-11-10** &nbsp; Upload [**generated reports**](https://github.com/mk-runner/PriorRG/tree/main/generated-reports) — `reference_reports` = ground-truth reports, `report` = generated reports  
+- **2025-11-10** &nbsp; Public release of official code & [pre-trained weights](https://huggingface.co/MK-runner/PriorRG)
+
+---
+
+## ⚙️ Requirements
+
+```bash
+# create environment
+conda create -n priorrg python=3.9
+
+# install dependencies
+pip install -r requirements.txt
