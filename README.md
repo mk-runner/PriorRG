@@ -31,7 +31,13 @@ conda create -n priorrg python=3.9.0
 # install dependencies
 pip install -r requirements.txt
 ```
+## Usage
 
+```bash
+# conduct pretraining task on the MIMIC-CXR dataset
+
+
+```
 ---
 
 ## 📜 Citation
