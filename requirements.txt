@@ -1,0 +1,12 @@
+cachetools==6.2.1
+einops==0.8.1
+nltk==3.8.1
+pandas==2.3.3
+Pillow==12.0.0
+pycocoevalcap==1.2
+pytorch_lightning==2.3.0
+radgraph==0.0.9
+stanza==1.11.0
+torch==2.6.0
+torchmetrics==1.4.0.post0
+transformers==4.43.3

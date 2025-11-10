@@ -1,0 +1,25 @@
+#!/bin/bash
+
+CUDA_VISIBLE_DEVICES=1 python ../main_github.py \
+--data_name "mimic_cxr" \
+--version "best" \
+--task "report-generation-gpt2" \
+--phase "finetune" \
+--ann_path "/home/miao/data/dataset/MIMIC-CXR/five_work_mimic_cxr_annotation_v2.json" \
+--view_position_dict "/home/miao/data/dataset/MIMIC-CXR/view-positions-dict-mimic.json" \
+--images_dir "/home/miao/data/dataset/MIMIC-CXR/files/" \
+--max_length 100 \
+--encoder_max_length 300 \
+--num_workers 6 \
+--is_save_checkpoint "no" \
+--load "../checkpoints/mimic-cxr/v0207-align_2025_02_07_22-best/checkpoint/best_model.ckpt" \
+--ckpt_zoo_dir "/home/miao/data/dataset/checkpoints" \
+--temporal_fusion_num_blocks 3 \
+--perceiver_num_blocks 3 \
+--num_latents 128 \
+--patience 5 \
+--pt_lr 5.0e-6 \
+--ft_lr 5.0e-5 \
+--monitor_metric "RCB" \
+--epochs 50 \
+--batch_size 16
