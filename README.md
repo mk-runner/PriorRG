@@ -17,7 +17,7 @@
 
 ## 📢 News
 
-- **2025-11-10** &nbsp; Upload [**generated reports**](https://github.com/mk-runner/PriorRG/tree/main/generated-reports) — `reference_reports` = ground-truth reports, `report` = generated reports  
+- **2025-11-10** &nbsp; Upload [**generated reports**](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) — `reference_reports` = ground-truth reports, `report` = generated reports  
 - **2025-11-10** &nbsp; Public release of official code & [pre-trained weights](https://huggingface.co/MK-runner/PriorRG)
 
 ---
@@ -26,7 +26,27 @@
 
 ```bash
 # create environment
-conda create -n priorrg python=3.9
+conda create -n priorrg python=3.9.0
 
 # install dependencies
 pip install -r requirements.txt
+
+---
+
+## 📜 Citation
+
+If you use or extend our work, please cite our AAAI 2026 paper.
+
+```bibtex
+@misc{liu2025priorrgpriorguidedcontrastivepretraining,
+      title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation}, 
+      author={Kang Liu and Zhuoqi Ma and Zikang Fang and Yunan Li and Kun Xie and Qiguang Miao},
+      year={2025},
+      eprint={2508.05353},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.05353}, 
+}
+```
+
+---
