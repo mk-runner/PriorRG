@@ -30,6 +30,7 @@ conda create -n priorrg python=3.9.0
 
 # install dependencies
 pip install -r requirements.txt
+```
 
 ---
 
@@ -47,6 +48,5 @@ If you use or extend our work, please cite our AAAI 2026 paper.
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2508.05353}, 
 }
-```
 
 ---
