@@ -316,5 +316,5 @@ def main():
     # aligned version performance:  {'Radgraph-partial': 0.2790697674418605, 'Radgraph-simple': 0.2790697674418605, 'Radgraph-complete': 0.12, 'chexbert_5_micro_f1': 0.3333333333333333, 'chexbert_5_macro_f1': 0.2, 'chexbert_all_micro_p': 0.6, 'chexbert_all_micro_r': 0.5, 'chexbert_all_micro_f1': 0.5454545454545454, 'chexbert_all_macro_p': 0.21428571428571427, 'chexbert_all_macro_r': 0.21428571428571427, 'chexbert_all_macro_f1': 0.21428571428571427, 'BLEU_1': 0.29508196720827734, 'BLEU_2': 0.14025737466133686, 'BLEU_3': 0.06934254863485513, 'BLEU_4': 8.707487334984397e-06, 'METEOR': 0.1559153991775291, 'ROUGE_L': 0.17226772098277324, 'CIDer': 0.0}
     # not aligned version performance:  {'Radgraph-partial': 0.2790697674418605, 'Radgraph-simple': 0.2790697674418605, 'Radgraph-complete': 0.12, 'chexbert_5_micro_f1': 0.3333333333333333, 'chexbert_5_macro_f1': 0.2, 'chexbert_all_micro_p': 0.6, 'chexbert_all_micro_r': 0.5, 'chexbert_all_micro_f1': 0.5454545454545454, 'chexbert_all_macro_p': 0.21428571428571427, 'chexbert_all_macro_r': 0.21428571428571427, 'chexbert_all_macro_f1': 0.21428571428571427, 'BLEU_1': 0.29508196720827734, 'BLEU_2': 0.14025737466133686, 'BLEU_3': 0.06934254863485513, 'BLEU_4': 8.707487334984397e-06, 'METEOR': 0.1559153991775291, 'ROUGE_L': 0.17226772098277324, 'CIDer': 0.0}
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
