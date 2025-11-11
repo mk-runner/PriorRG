@@ -1,182 +1,181 @@
 <div align="center">
 
-# PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation
+# 🩺 PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation
 
-[![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red.svg)](https://aaai.org/Conferences/AAAI-26/)&nbsp;&nbsp;&nbsp;
-[![arXiv](https://img.shields.io/badge/arXiv-2508.05353-b31b1b.svg)](https://arxiv.org/abs/2508.05353)&nbsp;&nbsp;&nbsp;
-[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/MK-runner/PriorRG)&nbsp;&nbsp;&nbsp;
-[![BibTeX](https://img.shields.io/badge/%F0%9F%93%96-BibTeX-yellow)](#-Citation)
+[![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red.svg)](https://aaai.org/Conferences/AAAI-26/)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.05353-b31b1b.svg)](https://arxiv.org/abs/2508.05353)
+[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/MK-runner/PriorRG)
+[![BibTeX](https://img.shields.io/badge/%F0%9F%93%96-BibTeX-yellow)](#-citation)
 
-<div align="center">
-  <img src="generated_reports/figure2.png" alt="Framework" width="75%">
-</div>
+<img src="generated_reports/figure2.png" alt="Framework Overview" width="75%">
 
 </div>
 
 ---
 
-## 📢 News
+## 📰 News
 
-- **2025-11-10** &nbsp; Upload [**generated reports**](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) — `reference_reports` = ground-truth reports, `report` = generated reports  
-- **2025-11-10** &nbsp; Public release of official code & [pre-trained weights](https://huggingface.co/MK-runner/PriorRG)
+- **[2025-11-10]** Released [**generated reports**](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) → `reference_report` = ground truth, `generated_report` = model output  
+- **[2025-11-10]** Official code and [pre-trained weights](https://huggingface.co/MK-runner/PriorRG) are now public.
 
 ---
 
 ## ⚙️ Installation
 
 ```bash
-# create environment
+# Create environment
 conda create -n priorrg python=3.9.0
+conda activate priorrg
 
-# install dependencies
+# Install dependencies
 pip install -r requirements.txt
-```
-**Core dependencies**
+````
 
-* `transformers==4.43.3` 
+**Core dependencies:**
+
+* `transformers==4.43.3`
 * `radgraph==0.09`
-  
-> Please see `requirements.txt` for additional dependencies.
+
+> See `requirements.txt` for the complete list of dependencies.
 
 ---
 
-
 ## 🧩 Model Checkpoints
 
-| Dataset       | Download                                                                    | Generated Reports                                                               |
-| ------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Dataset       | Checkpoints                                                                             | Generated Reports                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **MIMIC-CXR** | [HuggingFace](https://huggingface.co/MK-runner/PriorRG/tree/main/checkpoints/mimic-cxr) | [CSV](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) |
 | **MIMIC-ABN** | [HuggingFace](https://huggingface.co/MK-runner/PriorRG/tree/main/checkpoints/mimic-cxr) | [CSV](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) |
 
 ---
 
-## 📂 Dataset Structure
+## 📁 Dataset Structure
 
 ### 1. Medical Images
 
-PriorRG uses **MIMIC-CXR** and **MIMIC-ABN** datasets from [PhysioNet](https://physionet.org/content/mimic-cxr/2.0.0/).
+PriorRG is trained on **MIMIC-CXR** and **MIMIC-ABN** datasets from [PhysioNet](https://physionet.org/content/mimic-cxr/2.0.0/).
 
 ```
 data/
-├── p10
-│   └── p10000032
-│       └── s50414267
-│           ├── 02aa804e-bde0afdd-112c0b34-7bc16630-4e384014.jpg
-│           └── 174413ec-4ec4c1f7-34ea26b7-c5f994f8-79ef1962.jpg
-├── p11
-├── ...
-└── p19
+├── p10/
+│   └── p10000032/
+│       └── s50414267/
+│           ├── 02aa804e-....jpg
+│           └── 174413ec-....jpg
+├── p11/
+└── ...
 ```
 
 ### 2. Radiology Reports
 
-Organized by `study_id` to align longitudinal data.
+Organized by `study_id` to obtain longitudinal data.
 
-| Dataset        | Processed File                                                                                                                                         | Description                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
-| MIMIC-CXR      | [`priorrg_mimic_cxr_annotation.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/priorrg_mimic_cxr_annotation.json) | annotation for the MIMIC-CXR dataset         |
-| MIMIC-ABN      | [`priorrg_mimic_abn_annotation.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/priorrg_mimic_abn_annotation.json) | annotation for the MIMIC-ABN dataset |
-| View Positions | [`view_position_dict.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/view-positions-dict-mimic.json)               | View position metadata for all studies           |
+| Dataset            | Processed File                                                                                                                                                      | Description                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| **MIMIC-CXR**      | [`priorrg_mimic_cxr_annotation.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/priorrg_mimic_cxr_annotation.json) | Report annotations for MIMIC-CXR  |
+| **MIMIC-ABN**      | [`priorrg_mimic_abn_annotation.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/priorrg_mimic_abn_annotation.json) | Report annotations for MIMIC-ABN  |
+| **View Positions** | [`view_position_dict.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/checkpoints/mimic-cxr/radiology-reports/view-positions-dict-mimic.json)              | Metadata for X-ray view positions |
 
-### 3. `ckpt_zoo_dir` in `tool/utils_github.py`
+### 3. Checkpoint Directory Layout
+
 ```
-'ckpt_zoo_dir'/
+ckpt_zoo_dir/
 ├── chexbert.pth
-├── radgraph
-├── google-bert/bert-base-uncased
-├── microsoft/BiomedVLP-CXR-BERT-specialized
-├── microsoft/rad-dino
-└── distilbert/distilgpt2
+├── radgraph/
+├── google-bert/bert-base-uncased/
+├── microsoft/BiomedVLP-CXR-BERT-specialized/
+├── microsoft/rad-dino/
+└── distilbert/distilgpt2/
 ```
 
-> `chexbert.pth` and `radgraph` used for evaluation metrics need to be downloaded manually, while other checkpoints are automatically downloaded by the code.
-
-> The download instructions for `chexbert.pth` and `radgraph` follow those provided in [MLRG](https://github.com/mk-runner/MLRG).
-
----
-
-## 🚀 Usage — Inference with `main_single_sample_github.py`
-
-The script `main_single_sample_github.py` allows single-study inference under **four input configurations**:
-
-| Input Type                           | Description                                        |
-| ------------------------------------ | -------------------------------------------------- |
-| 🩻 **Image only**                    | A single image without view position (i.e., `view_position = 'unk'`)             |
-| 🧭 **+ View position**               | Specify the view position (e.g., PA, AP, Lateral, for more details see [`view_position_dict.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/radiology-report/priorrg_view_position_v1.0.json))  |
-| 💬 **+ Clinical context (optional)** | Provide brief clinical notes or findings           |
-| 📜 **+ Prior study (optional)**      | Supply a previous X-ray for longitudinal reasoning |
-
-> Examples can be found in `main_single_sample_github.py`
-
-
+> `chexbert.pth` and `radgraph` must be downloaded manually (see [MLRG](https://github.com/mk-runner/MLRG) for instructions).
+> Other checkpoints will be automatically fetched during training.
 
 ---
 
-## 🧠 Pipeline on the MIMIC-CXR Dataset
+## 🚀 Inference
+
+The script `main_single_sample_github.py` supports **four input configurations** for single-study inference:
+
+| Input Type                | Description                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🩻 **Image only**         | Single X-ray without view position (`view_position='unk'`)                                                                                                                      |
+| 🧭 **+ View position**    | Specify position (e.g., PA, AP, Lateral). See [`view_position_dict.json`](https://huggingface.co/MK-runner/PriorRG/blob/main/radiology-report/priorrg_view_position_v1.0.json). |
+| 💬 **+ Clinical context** | Add optional clinical notes or findings                                                                                                                                         |
+| 📜 **+ Prior study**      | Provide a previous X-ray for longitudinal reasoning                                                                                                                             |
+
+> Example configurations are available in `main_single_sample_github.py`.
+
+---
+
+## 🧠 Training & Evaluation Pipeline (MIMIC-CXR)
 
 ```bash
-# conduct pretraining task (finetune mode) on the MIMIC-CXR dataset
+# Pretraining (finetune mode)
 bash script_github/mimic-cxr-pretraining-finetune.sh
 
-# conduct pretraining task (inference mode) on the MIMIC-CXR dataset
+# Pretraining (inference mode)
 bash script_github/mimic-cxr-pretraining-inference.sh
 
-# conduct report generation task (finetune mode) on the MIMIC-CXR dataset
+# Report generation (finetune mode)
 bash script_github/mimic-cxr-report-generation-finetune.sh
 
-# conduct report generation task (inference mode) on the MIMIC-CXR dataset
+# Report generation (inference mode)
 bash script_github/mimic-cxr-report-generation-inference.sh
-
 ```
 
-## 📊 Evaluation using generated radiology reports
+---
+
+## 📊 Evaluation
 
 ```python
 def compute_performance_using_generated_reports():
     from tools.metrics.metrics import compute_all_scores, compute_chexbert_details_scores
+    import pandas as pd
+
     mimic_cxr_generated_path = 'generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv'
-    #mimic_abn_generated_path = 'generated-radiology-reports/MIMIC-ABN/test_reports_epoch-1_23-10-2024_10-25-20.csv'
     args = {
         'chexbert_path': "/home/miao/data/dataset/checkpoints/chexbert.pth",
         'bert_path': "/home/miao/data/dataset/checkpoints/bert-base-uncased",
         'radgraph_path': "/home/miao/data/dataset/checkpoints/radgraph",
     }
-    for generated_path in [mimic_cxr_generated_path, mimic_abn_generated_path, twoview_cxr_generated_path]:
-        data = pd.read_csv(generated_path)
-        gts, gens = data['reference_report'].tolist(), data['generated_report'].tolist()
-        scores = compute_all_scores(gts, gens, args)
-        print(scores)
+
+    data = pd.read_csv(mimic_cxr_generated_path)
+    gts, gens = data['reference_report'].tolist(), data['generated_report'].tolist()
+    scores = compute_all_scores(gts, gens, args)
+    print(scores)
 ```
 
 ---
 
-## 📜 Citation
+## 📚 Citation
 
-If you use or extend our work, please cite our AAAI 2026 paper.
+If you find this work helpful, please cite:
 
 ```bibtex
 @misc{liu2025priorrgpriorguidedcontrastivepretraining,
-      title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation}, 
-      author={Kang Liu and Zhuoqi Ma and Zikang Fang and Yunan Li and Kun Xie and Qiguang Miao},
-      year={2025},
-      eprint={2508.05353},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2508.05353}, 
+  title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation},
+  author={Kang Liu and Zhuoqi Ma and Zikang Fang and Yunan Li and Kun Xie and Qiguang Miao},
+  year={2025},
+  eprint={2508.05353},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2508.05353}
 }
 ```
+
 ---
 
 ## 🙏 Acknowledgements
 
-* [MLRG](https://github.com/mk-runner/MLRG) — foundational dataset organization
-* [cvt2distilgpt2](https://github.com/aehrc/cvt2distilgpt2) — text generation initialization
+* [MLRG](https://github.com/mk-runner/MLRG): Dataset organization and evaluation tools
+* [cvt2distilgpt2](https://github.com/aehrc/cvt2distilgpt2): Text generation initialization framework
 
 ---
 
 <div align="center">
 
-⭐️ If you find this repository useful, please consider starring it!
+⭐️ **If you find this repository useful, please consider starring it!**
 📬 For questions, open an issue or contact the authors.
 
 </div>
