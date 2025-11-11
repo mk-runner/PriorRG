@@ -47,6 +47,7 @@ pip install -r requirements.txt
 | **MIMIC-CXR** | [HuggingFace](https://huggingface.co/MK-runner/PriorRG/tree/main/checkpoints/mimic-cxr) | [CSV](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) |
 | **MIMIC-ABN** | [HuggingFace](https://huggingface.co/MK-runner/PriorRG/tree/main/checkpoints/mimic-cxr) | [CSV](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) |
 
+> Results on the MIMIC-ABN dataset are coming soon.
 ---
 
 ## 📁 Dataset Structure
