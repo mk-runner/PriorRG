@@ -26,7 +26,7 @@ def setup_arguments():
     parse = argparse.ArgumentParser()
     # basic configuration
     parse.add_argument('--task', type=str, default='pretraining',
-                       choices=['pretraining', 'report-generation-gpt2', 'report-generation-single-sample'],
+                       choices=['pretraining', 'report-generation-gpt2'],
                        help='the task to run. gpt2 is DistilGPT2. ')
     parse.add_argument('--phase', type=str, default='inference', choices=['finetune', 'inference'],
                        help='Is this task for fine-tuning or inference mode?')
