@@ -88,7 +88,7 @@ def main():
     elif args['task'] == 'report-generation-gpt2':  # ['train-language-model']
         model = TrainLanguageModel(args, tokenizer, logger)
     else:
-        model = TrainLanguageModelOneSample(args, tokenizer, logger)
+        raise ValueError('not implemented!')
 
     if args['phase'] != 'inference':
         if args['load'] is not None:
