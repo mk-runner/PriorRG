@@ -15,6 +15,7 @@
 
 ## 📰 News
 
+- **[2026-02-08]** Compute more metrics, including BertScore, SemScore, 1/RadCliQ-V1, and RATEScore
 - **[2025-11-10]** Released [**generated reports**](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) → `reference_report` = ground truth, `generated_report` = model output  
 - **[2025-11-10]** Official code and [pre-trained weights](https://huggingface.co/MK-runner/PriorRG) are now public.
 
@@ -147,6 +148,29 @@ def compute_performance_using_generated_reports():
     print(scores)
 ```
 
+---
+
+## 📊 More metrics
+```python
+{
+    'BertScore': 0.589690089225769,
+    'SemScore': 0.44889214634895325,
+    '1/RadCliQ-V1': 1.0499188828999766,
+    'RATEScore': 0.5711956463232671,
+    'green': 0.3607354281809111,
+    'chexbert_5_micro_f1': 0.5621201554249278,
+    'chexbert_5_macro_f1': 0.49565410982343805,
+    'chexbert_all_micro_p': 0.5410030133448127,
+    'chexbert_all_micro_r': 0.4849508006945784,
+    'chexbert_all_micro_f1': 0.5114457218435242,
+    'chexbert_all_macro_p': 0.42861347185421145,
+    'chexbert_all_macro_r': 0.36832540441255107,
+    'chexbert_all_macro_f1': 0.37640516594538165,
+    'BLEU_1': 0.4118609564738112, 'BLEU_2': 0.2895466207962516,
+    'BLEU_3': 0.21973018011383075, 'BLEU_4': 0.17475057720959183,
+    'METEOR': 0.1894554556994692, 'ROUGE_L': 0.3238645529898187, 'CIDer': 0.4069847807856516
+}
+```
 ---
 
 ## 📚 Citation
