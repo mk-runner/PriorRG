@@ -15,7 +15,7 @@
 
 ## 📰 News
 
-- **[2026-02-08]** Compute more metrics, including BertScore, SemScore, 1/RadCliQ-V1, and RATEScore
+- **[2026-02-08]** Compute **more metrics, including BertScore, SemScore, 1/RadCliQ-V1, and RATEScore**
 - **[2025-11-10]** Released [**generated reports**](https://github.com/mk-runner/PriorRG/blob/main/generated_reports/mimic-cxr-generated-reports-24-03-2025_18-07-41.csv) → `reference_report` = ground truth, `generated_report` = model output  
 - **[2025-11-10]** Official code and [pre-trained weights](https://huggingface.co/MK-runner/PriorRG) are now public.
 
