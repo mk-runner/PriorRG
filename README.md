@@ -2,7 +2,7 @@
 
 # 🩺 PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation
 
-[![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red.svg)](https://aaai.org/Conferences/AAAI-26/)
+[![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red.svg)](https://ojs.aaai.org/index.php/AAAI/article/view/37657)
 [![arXiv](https://img.shields.io/badge/arXiv-2508.05353-b31b1b.svg)](https://arxiv.org/abs/2508.05353)
 [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/MK-runner/PriorRG)
 [![BibTeX](https://img.shields.io/badge/%F0%9F%93%96-BibTeX-yellow)](#-citation)
@@ -179,15 +179,17 @@ def compute_performance_using_generated_reports():
 If you find this work helpful, please cite:
 
 ```bibtex
-@misc{liu2025priorrgpriorguidedcontrastivepretraining,
-  title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation},
-  author={Kang Liu and Zhuoqi Ma and Zikang Fang and Yunan Li and Kun Xie and Qiguang Miao},
-  year={2025},
-  eprint={2508.05353},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV},
-  url={https://arxiv.org/abs/2508.05353}
-}
+@article{Liu_Ma_Fang_Li_Xie_Miao_2026,
+    title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation},
+    volume={40},
+    url={https://ojs.aaai.org/index.php/AAAI/article/view/37657},
+    DOI={10.1609/aaai.v40i9.37657},
+    number={9},
+    journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+    author={Liu, Kang and Ma, Zhuoqi and Fang, Zikang and Li, Yunan and Xie, Kun and Miao, Qiguang},
+    year={2026},
+    month={Mar.},
+    pages={7206-7214} }
 ```
 
 ---
