@@ -36,7 +36,7 @@ pip install -r requirements.txt
 **Core dependencies:**
 
 * `transformers==4.43.3`
-* `radgraph==0.09`
+* `radgraph==0.0.9`
 
 > See `requirements.txt` for the complete list of dependencies.
 
