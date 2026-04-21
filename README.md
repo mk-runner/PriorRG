@@ -179,17 +179,18 @@ def compute_performance_using_generated_reports():
 If you find this work helpful, please cite:
 
 ```bibtex
-@article{Liu_Ma_Fang_Li_Xie_Miao_2026,
+@InProceedings{aaai-priorrg-2026,
     title={PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation},
     volume={40},
     url={https://ojs.aaai.org/index.php/AAAI/article/view/37657},
     DOI={10.1609/aaai.v40i9.37657},
     number={9},
-    journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+    booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
     author={Liu, Kang and Ma, Zhuoqi and Fang, Zikang and Li, Yunan and Xie, Kun and Miao, Qiguang},
     year={2026},
     month={Mar.},
-    pages={7206-7214} }
+    pages={7206-7214}
+}
 ```
 
 ---
